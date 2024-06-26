@@ -1,0 +1,21 @@
+<!-- Parent HTML -->
+<div id="component1">This is Parent component 1</div>
+<button onclick="sendDataToIframe({ action: 'toggleComponent', componentId: 'component1', show: true });">Show Component Child Iframe Component 1</button><br>
+<button onclick="sendDataToIframe({ action: 'toggleComponent', componentId: 'component1', show: false });">Hide Component Child Iframe Component 1</button><br>
+<button onclick="sendDataToIframe({ action: 'toggleComponent', componentId: 'component2', show: true });">Show Component Child Iframe Component 2</button><br>
+<button onclick="sendDataToIframe({ action: 'toggleComponent', componentId: 'component2', show: false });">Hide Component Child Iframe Component 2</button><br>
+
+<!-- <button>Show/Hide Component Child Iframe Component 2</button> -->
+<iframe id="childIframe" src="child.html" style="border: 1px solid red;"></iframe>
+
+<script>
+    const iframe = document.getElementById('childIframe');
+
+    // Function to send data to the iframe
+    function sendDataToIframe(data) {
+        iframe.contentWindow.postMessage(data, '*');
+    }
+
+    // Example of sending data
+    
+</script>

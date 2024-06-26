@@ -1,0 +1,28 @@
+<!-- Child HTML -->
+<div id="component1">This is component 1</div>
+<div id="component2">This is component 2</div>
+
+<script>
+    // Function to handle the incoming message
+    function handleMessage(event) {
+        const data = event.data;
+        
+        if (data.action === 'toggleComponent') {
+            const component = document.getElementById(data.componentId);
+            if (component) {
+                component.style.display = data.show ? 'block' : 'none';
+            }
+        }
+    }
+
+    // Adding event listener for receiving messages
+    window.addEventListener('message', handleMessage, false);
+
+
+    if (window.top !== window.self) {
+        console.log("Child window")
+        alert("Child window")
+        // window.top.location = "about:blank";
+    }
+
+</script>
